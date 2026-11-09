@@ -149,6 +149,11 @@ def patch(src,dst):
     d[TOFF+WIDTH_ADDR:TOFF+WIDTH_END]=w
     d[TOFF+DRAW_ADDR:TOFF+DRAW_END]=dr
     d[TOFF+CTRL_BRANCH:TOFF+CTRL_BRANCH+4]=br
+    # 동영상 자막(SUB) 줄의 UTF-8 변환(0x2facc0)이 한글 2바이트 코드를 깨뜨림 -> 변환 생략
+    U8=0x2face0
+    assert d[TOFF+U8:TOFF+U8+4]==asm('beqz $a1, 0x2fad60',U8)
+    assert not any(a<=off<a+4 for off,_ in reloc_offsets(d) for a in (U8,))
+    d[TOFF+U8:TOFF+U8+4]=asm('b 0x2fad60',U8)
     open(dst,'wb').write(d)
     print('width %d/%d, draw %d/%d, ctrl=0x%x'%(len(asm(WIDTH,WIDTH_ADDR)),WIDTH_END-WIDTH_ADDR,len(asm(DRAW,DRAW_ADDR)),DRAW_END-DRAW_ADDR,ctrl))
     return bytes(d)

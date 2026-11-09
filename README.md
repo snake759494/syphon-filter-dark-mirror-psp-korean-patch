@@ -5,8 +5,8 @@ PSP 북미판 **Syphon Filter: Dark Mirror (사이폰 필터: 다크 미러, UCU
 ## 적용 방법
 1. 아래 해시와 일치하는 **원본 `.iso`** 를 준비합니다. (CSO·CHD 등으로 변환한 이미지에는 적용할 수 없습니다.)
    - PowerShell: `Get-FileHash -Algorithm MD5 -LiteralPath '.\Syphon Filter - Dark Mirror (USA).iso'`
-2. xdeltaUI 같은 도구로 원본 `.iso` 에 `SyphonFilter_DarkMirror_KO_v1.0.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ISO, Output File = 새 파일명)
-   - 명령줄: `xdelta3 -d -s "Syphon Filter - Dark Mirror (USA).iso" SyphonFilter_DarkMirror_KO_v1.0.xdelta "Syphon Filter - Dark Mirror (Korean).iso"`
+2. xdeltaUI 같은 도구로 원본 `.iso` 에 `SyphonFilter_DarkMirror_KO_v1.1.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ISO, Output File = 새 파일명)
+   - 명령줄: `xdelta3 -d -s "Syphon Filter - Dark Mirror (USA).iso" SyphonFilter_DarkMirror_KO_v1.1.xdelta "Syphon Filter - Dark Mirror (Korean).iso"`
 3. 만들어진 ISO를 PPSSPP 또는 커스텀 펌웨어(PSP·PS Vita Adrenaline 등)에서 실행합니다.
 
 | 항목 | 값 |
@@ -14,15 +14,16 @@ PSP 북미판 **Syphon Filter: Dark Mirror (사이폰 필터: 다크 미러, UCU
 | 원본 ISO 크기 | 1,206,910,976 바이트 |
 | 원본 ISO MD5 | `b5b58939cd1d4a764b2ae41f20d6e243` |
 | 원본 ISO SHA-256 | `94f69aecb31c1af89d360be4ecf082949857aa0fcf6b429814a4c2627bd9735d` |
-| xdelta SHA-256 | `715038e8b79ff074ca7fb9dc98d7564e07a23e375445d170cecf3c77484eb1af` |
+| xdelta SHA-256 | `f10f2a9da272306d245c5290c49d7ae8750f6b195764e2fd14de80dcb5ebfa33` |
 | 결과 ISO 크기 | 1,278,019,584 바이트 |
-| 결과 ISO SHA-256 | `1d11df9d6544afd96499d3ad259333b81c9928077b23a9f83c1c45db0ee95b67` |
+| 결과 ISO SHA-256 | `6c9452a20871027c7e3a07d6197bc4a273a63ce72b9ccf13611f2ca839b8395b` |
 
 ## 주의
 - 복호화한 실행 파일을 EBOOT로 넣었기 때문에 **PPSSPP·커스텀 펌웨어 전용**입니다. 정품 펌웨어에서는 부팅되지 않습니다.
 - 원본에서 만든 **상태저장(세이브 스테이트)** 은 불러오지 마세요. 일반 세이브는 그대로 쓸 수 있습니다.
 - 음성 자막은 기본값이 꺼져 있습니다. **옵션 → 오디오 → 자막** 을 켜면 무전·컷신 대사가 한국어 자막으로 나옵니다.
 - xdelta는 압축하지 않은 형식(`-0`)입니다(약 96MB).
+- v1.0 패치를 적용한 ISO에는 덮어쓸 수 없습니다. 반드시 **원본 북미판 ISO** 에 v1.1을 적용하세요.
 
 ## 한글화 내용
 - 메뉴·옵션·무기·장비·도움말 등 공통 문자열 1,987개와 실행 파일 문자열 직접 번역
@@ -38,7 +39,7 @@ PSP 북미판 **Syphon Filter: Dark Mirror (사이폰 필터: 다크 미러, UCU
 - 음성, 실제 총기 모델명·코드명 같은 고유 표기, 개발용 자리표시 문자열, 법적 고지, 영문 로고 이미지
 
 ## 검증 범위
-PPSSPP에서 타이틀, 메뉴, 옵션, 훈련 1, 스토리 에피소드 1 도입과 음성 자막을 확인했습니다. 모든 MRK·STRINGS·GUI·자막 파일을 전수 검사해 번역 대상 영어가 남지 않고 잘린 대사가 없는 것을 확인했습니다. 전체 플레이 검증은 하지 않았습니다. 문제를 발견하면 Issues에 알려 주세요.
+PPSSPP에서 타이틀, 메뉴, 옵션, 훈련 1, 스토리 에피소드 1 도입과 음성 자막, 컷신 동영상 자막을 확인했습니다. 모든 MRK·STRINGS·GUI·자막 파일을 전수 검사해 번역 대상 영어가 남지 않고 잘린 대사가 없는 것을 확인했습니다. 전체 플레이 검증은 하지 않았습니다. 문제를 발견하면 Issues에 알려 주세요.
 
 ## 문서
 - [CHANGELOG.md](CHANGELOG.md) — 변경 기록

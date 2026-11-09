@@ -17,7 +17,7 @@
 - **STRINGS.DAT**(`tools/strdat.py`): 키→문자열 표. 공통 `COMMON/STRINGS.DAT` 는 키 기준으로 번역합니다. 레벨마다 `FREEDGUI*.HGZ` 안에 따로 있는 STRINGS.DAT는 키가 겹치므로 영어 원문 기준으로 번역합니다.
 - **GUI**(`tools/gui.py`): 화면 레이아웃 파일 안의 텍스트 필드를 바꿉니다.
 - **SMRK**(`tools/mrk.py`): 음성 대사 자막 스크립트. 게임이 대사를 **원래 바이트 오프셋**으로 찾기 때문에 레코드 위치를 옮기면 그 뒤 자막이 사라집니다. `build_fixed` 로 각 레코드를 원래 자리, 원래 크기 안에 덮어쓰고, 넘치는 대사는 `trans/mrk_short.json` 의 줄인 번역을 씁니다.
-- **SUB**: 컷신 자막 텍스트. 따옴표 안 문자열을 순서대로 바꿉니다.
+- **SUB**: 컷신 동영상 자막 텍스트. 따옴표 안 문자열을 순서대로 바꿉니다. 게임은 읽은 줄을 UTF-8로 디코딩(0x2facc0)하는데, 한글 리드 바이트 0xE0–0xEF가 UTF-8 3바이트 시퀀스로 해석돼 글자가 깨지므로 0x2face0의 분기를 무조건 분기로 바꿔 변환을 건너뜁니다(`tools/eboot_patch.py`).
 
 ## 글꼴
 - `tools/fnt.py`, `tools/fontgen.py`: 원본 FNT 메트릭을 유지하고 한글 글리프 페이지 TDX를 추가합니다.

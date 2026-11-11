@@ -1,11 +1,11 @@
 {
- "version": "v1.1",
- "asset": "SyphonFilter_DarkMirror_KO_v1.1.xdelta",
- "asset_size": 95982463,
- "asset_sha256": "f10f2a9da272306d245c5290c49d7ae8750f6b195764e2fd14de80dcb5ebfa33",
+ "version": "v1.2",
+ "asset": "SyphonFilter_DarkMirror_KO_v1.2.xdelta",
+ "asset_size": 95982470,
+ "asset_sha256": "2b4ce535674b2c90267a11a471240ae1a2c71774750e3a69fac294455a2159cb",
  "source_iso_size": 1206910976,
  "source_iso_md5": "b5b58939cd1d4a764b2ae41f20d6e243",
  "source_iso_sha256": "94f69aecb31c1af89d360be4ecf082949857aa0fcf6b429814a4c2627bd9735d",
  "result_iso_size": 1278019584,
- "result_iso_sha256": "6c9452a20871027c7e3a07d6197bc4a273a63ce72b9ccf13611f2ca839b8395b"
+ "result_iso_sha256": "77cddce69539e2bba7a57b7b3398158f272a40c986ffdf726c6575278fbe27ac"
 }

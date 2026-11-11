@@ -154,6 +154,11 @@ def patch(src,dst):
     assert d[TOFF+U8:TOFF+U8+4]==asm('beqz $a1, 0x2fad60',U8)
     assert not any(a<=off<a+4 for off,_ in reloc_offsets(d) for a in (U8,))
     d[TOFF+U8:TOFF+U8+4]=asm('b 0x2fad60',U8)
+    # 같은 UTF-8 문자열 변환 본체(0x2fa8c0)를 직접 부르는 경로(스크립트 자막 등)도 변환 생략
+    U8B=0x2fa8f8
+    assert d[TOFF+U8B:TOFF+U8B+4]==asm('beqz $a1, 0x2fa97c',U8B)
+    assert not any(U8B<=off<U8B+4 for off,_ in reloc_offsets(d))
+    d[TOFF+U8B:TOFF+U8B+4]=asm('b 0x2fa97c',U8B)
     open(dst,'wb').write(d)
     print('width %d/%d, draw %d/%d, ctrl=0x%x'%(len(asm(WIDTH,WIDTH_ADDR)),WIDTH_END-WIDTH_ADDR,len(asm(DRAW,DRAW_ADDR)),DRAW_END-DRAW_ADDR,ctrl))
     return bytes(d)
